@@ -96,7 +96,8 @@ public class CustomerController : ControllerBase
         }
         return _response.Result;
     }
-    [HttpPost]
+    
+    [HttpPut]
     public async Task<object> Put([FromBody] CustomerDto customerDto)
     {
         _response = new ResponseDto();
@@ -112,6 +113,7 @@ public class CustomerController : ControllerBase
         }
         return _response.Result;
     }
+    
     [HttpDelete]
     [Route("{id}")]
     public async Task<object> Delete(int id)

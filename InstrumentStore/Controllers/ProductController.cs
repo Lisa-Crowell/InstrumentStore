@@ -90,7 +90,8 @@ public class ProductController : ControllerBase
         }
         return _response;
     }
-    [HttpPost]
+    
+    [HttpPut]
     public async Task<object> Put([FromBody] ProductDto productDto)
     {
         try
@@ -105,6 +106,7 @@ public class ProductController : ControllerBase
         }
         return _response;
     }
+    
     [HttpDelete]
     [Route("{id}")]
     public async Task<object> Delete(int id)

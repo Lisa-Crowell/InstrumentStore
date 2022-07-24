@@ -84,7 +84,8 @@ public class OrderController : ControllerBase
         }
         return _response.Result;
     }
-    [HttpPost]
+    
+    [HttpPut]
     public async Task<object> Put([FromBody] OrderDto orderDto)
     {
         try
@@ -99,6 +100,7 @@ public class OrderController : ControllerBase
         }
         return _response.Result;
     }
+    
     [HttpDelete]
     [Route("{id}")]
     public async Task<object> Delete(int id)
