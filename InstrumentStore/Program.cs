@@ -1,8 +1,30 @@
+using AutoMapper;
+using InstrumentStore;
+using InstrumentStore.DbContexts;
+using InstrumentStore.Repository;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// get the connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<InstrumentStoreDbContext>(options => 
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+// add mapping configurations
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
