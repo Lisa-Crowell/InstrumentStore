@@ -2,10 +2,15 @@
 Here you will be able to search for musical instruments by type, brand, price, past
 purchase history, quantity in stock, and much more!
 
-To test the functionality of the application, please clone the repository and run the
-migrations to create the database. There are entries filled with seed data provided.
+### Running the Application
+To run the application, start the database with the following command:
+```bash
+$ docker compose up
+```
 
-### To run this application you will need to install the following NuGet packages:
+Then build and run the application in your IDE or from the terminal.
+
+### This application depends upon the following NuGet packages:
 #### AutoMapper: [nuget](https://www.nuget.org/packages/AutoMapper/)
 #### Entity Framework: [nuget](https://www.nuget.org/packages/EntityFramework/)
 #### Entity Framework Core: [nuget](https://www.nuget.org/packages/EntityFrameworkCore/)
@@ -15,9 +20,9 @@ migrations to create the database. There are entries filled with seed data provi
 #### Swashbuckle.AspNetCore: [nuget](https://www.nuget.org/packages/Swashbuckle.AspNetCore/)
 
 ### To check out our search ability, please visit the following pages:
-#### localhost:7036/api/products  <-shows all of the products in the database
-#### localhost:7036/api/customers  <-shows all of the customers in the database
-#### localhost:7036/api/orders  <-shows all of the orders in the database
+#### localhost:7175/api/products  <-shows all of the products in the database
+#### localhost:7175/api/customers  <-shows all of the customers in the database
+#### localhost:7175/api/orders  <-shows all of the orders in the database
 
 ### Applicable endpoints:
 

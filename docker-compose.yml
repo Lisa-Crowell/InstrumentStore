@@ -1,0 +1,17 @@
+version: "3"
+services:
+  music.db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "RootPassword"
+      MYSQL_ROOT_USER: "root"
+    volumes:
+      - ./db:/db
+    networks:
+      - music-network
+    command: --init-file /db/init.sql 
+networks:
+  music-network:
+    driver: bridge
