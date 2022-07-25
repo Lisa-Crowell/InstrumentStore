@@ -69,7 +69,6 @@ public class OrderRepository : IOrderRepository
 
     public async Task<IEnumerable<OrderDto>> GetByDateBetweenDates(string startDate, string endDate)
     {
-        Console.WriteLine("Starting");
         var start = DateTime.Parse(startDate);
         var end = DateTime.Parse(endDate);
         
@@ -79,7 +78,7 @@ public class OrderRepository : IOrderRepository
             .Where(o => 
                 o.OrderDate.Date >= start.Date && 
                 o.OrderDate.Date <= end.Date).ToListAsync();
-        Console.WriteLine("Success");
+        
         return _mapper.Map<IEnumerable<OrderDto>>(orderList);
     }
 
